@@ -25,13 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_5m8@=_-2=^6_s3h_3qakrii)5%=04u#j(zg&hkzuyoqw51g)6'
 #can use getenv for secret_key so that its not exposed -- SECRET_KEY = getenv("SECRET_KEY")
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = getenv("IS_DEVELOPEMENT",True)
 
-ALLOWED_HOSTS = ["localhost","127.0.0.1",
-    getenv("APP_HOST")
-]
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+# DEBUG = getenv("IS_DEVELOPEMENT",True)
+
+ALLOWED_HOSTS =[]
+
+# ALLOWED_HOSTS = ["localhost","127.0.0.1",
+#     getenv("APP_HOST")
+# ]
 
 
 # Application definition
@@ -84,14 +87,21 @@ WSGI_APPLICATION = 'my_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'djangoblog' ,
+#         'USER': 'joey' ,
+#         'PASSWORD': '12345678',
+#         'HOST' : 'blog.cgfaoeiciocu.us-east-2.rds.amazonaws.com' ,
+#         'PORT' : '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangoblog' ,
-        'USER': 'joey' ,
-        'PASSWORD': '12345678',
-        'HOST' : 'blog.cgfaoeiciocu.us-east-2.rds.amazonaws.com' ,
-        'PORT' : '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
