@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("blog.urls"))
 ] \
-#   + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) \
-#   + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)#exposing all files in MEDIA_ROOT(in uploads folder)
+  + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 
+# \  + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)#exposing all files in MEDIA_ROOT(in uploads folder)
   #  through MEDIA_URL to outside world
 
